@@ -57,7 +57,8 @@ namespace Scrapper.Controllers
                 };
 
                 var jsonObject = JObject.FromObject(item);
-                result = jsonObject.ToString();
+                JArray array = (JArray)jsonObject["Songs"];
+                result = array.ToString();
             }
 
             //HttpResponseMessage response = new HttpResponseMessage(HttpStatusCode.OK)
