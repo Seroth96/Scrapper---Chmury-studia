@@ -9,89 +9,49 @@ using System.Resources;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json.Linq;
+using Scrapper.Model;
 
 namespace Scrapper.Controllers
 {
-    public struct Song
-    {
-        public string artist { get; set; }
-        public string title { get; set; }
-        public string genre { get; set; }
-        public string url { get; set; }
-    }
+    
 
     [Route("api/[controller]")]
     [ApiController]
     public class ScrapperController : ControllerBase
     {
-        // GET api/values
-        [HttpGet]
-        public String Get()
-        {          
-            var assembly = Assembly.GetExecutingAssembly();
-            var resourceName = "Scrapper.Resources.audioswap_ajax.json";
+        [HttpGet("{number}")]
+        public String Get(int number)
+        {
+            TracksModel model = new TracksModel();
+            model.ParseAudioLibrary();
             string result = "";
-            using (Stream stream = assembly.GetManifestResourceStream(resourceName))
-            using (StreamReader sr = new StreamReader(stream))
+            var item = new
             {
-                String line;
-                line = sr.ReadToEnd();
+                Songs = model.Tracks.Take(number).ToList()
+            };
+            var jsonObject = JObject.FromObject(item);
+            JArray array = (JArray)jsonObject["Songs"];
+            result = array.ToString();
 
-                dynamic myObject = JToken.Parse(line);
-                // Log sessionA first order
-                var Tracks = new List<dynamic>();
-                var test = myObject["tracks"];
-                foreach (var track in myObject["tracks"])
-                {
-                    Tracks.Add(track);
-                }
-                var item = new
-                {
-                    Songs = Tracks.Select(i => new Song
-                    {
-                        artist = i["artist"],
-                        title = i["title"],
-                        genre = i["genre"],
-                        url = i["download_url"]
-                    }).ToList()
-                };
-
-                var jsonObject = JObject.FromObject(item);
-                JArray array = (JArray)jsonObject["Songs"];
-                result = array.ToString();
-            }
-
-            //HttpResponseMessage response = new HttpResponseMessage(HttpStatusCode.OK)
-            //{
-            //    Content = result              
-            //};
             return result;
         }
 
+        [HttpGet]
+        public String Get()
+        {
+            TracksModel model = new TracksModel();
+            model.ParseAudioLibrary();
+            string result = "";
+            var item = new
+            {
+                Songs = model.Tracks
+            };
+            var jsonObject = JObject.FromObject(item);
+            JArray array = (JArray)jsonObject["Songs"];
+            result = array.ToString();
 
-        //// GET api/values/5
-        //[HttpGet("{id}")]
-        //public ActionResult<string> Get(int id)
-        //{
-        //    return "value";
-        //}
+            return result;
+        }
 
-        //// POST api/values
-        //[HttpPost]
-        //public void Post([FromBody] string value)
-        //{
-        //}
-
-        //// PUT api/values/5
-        //[HttpPut("{id}")]
-        //public void Put(int id, [FromBody] string value)
-        //{
-        //}
-
-        //// DELETE api/values/5
-        //[HttpDelete("{id}")]
-        //public void Delete(int id)
-        //{
-        //}
     }
 }

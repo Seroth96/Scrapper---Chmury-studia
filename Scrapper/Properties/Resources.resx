@@ -121,4 +121,16 @@
   <data name="audioswap_ajax" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\audioswap_ajax.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="audioswap_ajax__6_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\audioswap_ajax (6).json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="audioswap_ajax__7_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\audioswap_ajax (7).json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="audioswap_ajax__8_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\audioswap_ajax (8).json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="audioswap_ajax__9_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\audioswap_ajax (9).json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
 </root>

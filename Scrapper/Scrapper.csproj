@@ -5,6 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="Resources\audioswap_ajax %286%29.json" />
+    <Content Remove="Resources\audioswap_ajax %287%29.json" />
+    <Content Remove="Resources\audioswap_ajax %288%29.json" />
+    <Content Remove="Resources\audioswap_ajax %289%29.json" />
     <Content Remove="Resources\audioswap_ajax.json" />
   </ItemGroup>
 
@@ -14,6 +18,13 @@
 
   <ItemGroup>
     <EmbeddedResource Include="Resources\audioswap_ajax.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\audioswap_ajax (6).json" />
+    <EmbeddedResource Include="Resources\audioswap_ajax (7).json" />
+    <EmbeddedResource Include="Resources\audioswap_ajax (8).json" />
+    <EmbeddedResource Include="Resources\audioswap_ajax (9).json" />
   </ItemGroup>
 
   <ItemGroup>
